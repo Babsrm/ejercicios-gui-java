@@ -107,8 +107,22 @@ public class Ejercicio04 extends JFrame {
 		JButton btnCalcular = new JButton("Calcular");
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				calcular();
+			}
+			}
+		);
+		contentPane.add(btnCalcular, "cell 5 6 2 1,growx");
+		
+		lblPromedio = new JLabel("Promedio: ");
+		contentPane.add(lblPromedio, "cell 1 7 6 1,alignx left");
+		
+		lblResultado = new JLabel("Resultado:");
+		contentPane.add(lblResultado, "cell 1 8 6 1,alignx left");}
+		
+		protected void calcular() {
 			try {
 				double nota1 = Double.parseDouble(textNota1.getText());
+		//cojo el valor de texto como double
 				double nota2 = Double.parseDouble(textNota2.getText());
 				double nota3 = Double.parseDouble(textNota3.getText());
 				if (nota1<0 || nota1>10 
@@ -117,29 +131,25 @@ public class Ejercicio04 extends JFrame {
 						||
 					nota3<0 || nota3>10) {
 					JOptionPane.showMessageDialog(null,"Alguna de las notas introducidas no es correcta. Por favor, introduzca un valor entre 0 y 10." ,"Error",JOptionPane.ERROR_MESSAGE);
-					return;
+					return; //que salga del programa
 				}
 				
 				double promedio = (nota1 + nota2 + nota3)/3;
-				lblPromedio.setText("Promedio: " +promedio);
+				lblPromedio.setText("Promedio: " +String.format("%.2f", promedio));
+														//para ponerle dos decimales	
 				
-				if (promedio >5) {
+				if (promedio >=5) {
+					lblResultado.setForeground(Color.BLACK);
 					lblResultado.setText("Resultado: Ha aprobado la asignatura."); 
 				} else {
+					lblResultado.setForeground(Color.RED);
 					lblResultado.setText("Resultado: Toca recuperar.");
 				}
 				}	
 			 catch (NumberFormatException ex) {
 				JOptionPane.showMessageDialog(null, "Debe de introducir valores válidos. Evite usar caracteres. Por favor, introduzca un valor entre 0 y 10.", "Error", JOptionPane.ERROR_MESSAGE);
-			}}}
-		);
-		contentPane.add(btnCalcular, "cell 5 6 2 1,growx");
-		
-		lblPromedio = new JLabel("Promedio: ");
-		contentPane.add(lblPromedio, "cell 1 7 6 1,alignx left");
-		
-		lblResultado = new JLabel("Resultado:");
-		contentPane.add(lblResultado, "cell 1 8 6 1,alignx left");
+			
+		}
 	}
 
 }

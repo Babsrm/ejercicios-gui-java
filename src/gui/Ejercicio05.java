@@ -20,6 +20,9 @@ public class Ejercicio05 extends JFrame {
 //	deshabilitará el mismo.
 
 	private JPanel contentPane;
+private JButton btnDesCentral;
+private JButton btnCentral;
+private JButton btnHabCentral;
 
 	/**
 	 * Launch the application.
@@ -49,24 +52,26 @@ public class Ejercicio05 extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[grow][][:15:30][][:15:30px][][grow]", "[]"));
 		
-		JButton btnDesCentral = new JButton("Deshabilita Central");
+		btnDesCentral = new JButton("Deshabilita Central");
 		btnDesCentral.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				btnHabCentral.setEnabled(true);		
+				btnDesCentral.setEnabled(false);
+				btnCentral.setEnabled(false);
 			}
 		});
 		contentPane.add(btnDesCentral, "cell 1 0");
 		
-		JButton btnCentral = new JButton("Central");
-		btnCentral.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btnCentral = new JButton("Central");
 		contentPane.add(btnCentral, "cell 3 0");
 		
-		JButton btnHabCentral = new JButton("Habilita Central");
+		btnHabCentral = new JButton("Habilita Central");
 		btnHabCentral.setEnabled(false);
 		btnHabCentral.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				btnHabCentral.setEnabled(false);		
+				btnDesCentral.setEnabled(true);
+				btnCentral.setEnabled(true);
 			}
 		});
 		contentPane.add(btnHabCentral, "cell 5 0");
