@@ -91,21 +91,19 @@ private JCheckBox chckbxCocina;
 		contentPane.add(btnComprobar, "cell 4 6 2 1,alignx center");	
 	}
 	protected void comprobar() {
-		String texto = "";
+		textPanel.setText("");
 			if (chckbxDeportes.isSelected()) {
-				texto="Deportes\n";
+				textPanel.setText(chckbxDeportes.getActionCommand()+"\n");
 			} 
 			if (chckbxTecnologia.isSelected()) {
-				texto=texto+"Tecnologia\n";
+				textPanel.setText(textPanel.getText() + chckbxTecnologia.getActionCommand()+"\n");
 			} 
 			if (chckbxJuegos.isSelected()) {
-				texto= texto+"Juegos\n";
+				textPanel.setText(textPanel.getText()+ chckbxJuegos.getActionCommand() +"\n");
 			}
 			if (chckbxCocina.isSelected() ) {
-				texto=texto+"Cocina";
+				textPanel.setText(textPanel.getText()  + chckbxCocina.getActionCommand()+"\n");
 			}
-			
-			textPanel.setText(texto);
 		}
 
 }
