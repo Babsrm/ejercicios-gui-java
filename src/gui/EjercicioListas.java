@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -39,7 +40,7 @@ public class EjercicioListas extends JFrame {
 	private JPanel contentPane;
 	private JTextField textNombre;
 	private JTextField textTelefono;
-	private List<Contacto> listaContactos;
+	private ArrayList<Contacto> listaContactos;
 	private JTable tableTlf;
 
 	/**
@@ -140,6 +141,10 @@ public class EjercicioListas extends JFrame {
 		
 		Contacto c = new Contacto(nombre, tlf);
 		
+		if (nombre == null || nombre.isBlank() || tlf==null || tlf.isBlank()) {
+			JOptionPane.showMessageDialog(this, "introduzca el nombre y el tlf", "faltan datos", JOptionPane.ERROR_MESSAGE);
+		}
+		
 		if (!listaContactos.contains(c)) { //si la lista no contiene al contacto, lo añade. sino, no hace nada
 			listaContactos.add(c);
 		}
@@ -152,6 +157,11 @@ public class EjercicioListas extends JFrame {
 			
 			//primero guardo en una variable el índice que he seleccionado para borrar
 			int indice=tableTlf.getSelectedRow();
+			
+			if (indice==-1) { //esto es un controlador para que el índice sea el correcto y no salgan errores
+				JOptionPane.showMessageDialog(this, "Debe seleccionar un contacto para eliminar", "Error al eliminar", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
 			//una vez seleccionada la fila, la borro de la lista de contactos y de la tabla.
 			listaContactos.remove(indice);
 			//al borrarla de la tabla, se actualiza directamente y se ve que se ha borrado, habiéndose borrado de la lista previamente tb

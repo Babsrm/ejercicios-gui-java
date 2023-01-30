@@ -54,7 +54,7 @@ private JLabel lblCiudadSelec;
 		JLabel lblCiudad = new JLabel("Ciudad");
 		contentPane.add(lblCiudad, "cell 0 0");
 		
-		JComboBox comboBox = new JComboBox();
+		JComboBox<String> comboBox = new JComboBox<String>();
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String seleccionado = (String) comboBox.getSelectedItem();
@@ -62,7 +62,7 @@ private JLabel lblCiudadSelec;
 				lblCiudadSelec.setText(seleccionado);
 			}
 		});
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Granada", "Armilla", "Huetor Vega", "Alfacar", "Loja", "Atarfe", "Guadix", "Baza", "Monachil", "Las Gabias", "Cenes de la Vega", "Churriana de la Vega", "Huescar", "Jun", "Pinos Genil", "Güejar Sierra", "Dúdar", "Gójar", "Dúrcal", "Nigüelas", "Almuñecar", "Salobreña", "Lanjarón"}));
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Granada", "Armilla", "Huetor Vega", "Alfacar", "Loja", "Atarfe", "Guadix", "Baza", "Monachil", "Las Gabias", "Cenes de la Vega", "Churriana de la Vega", "Huescar", "Jun", "Pinos Genil", "Güejar Sierra", "Dúdar", "Gójar", "Dúrcal", "Nigüelas", "Almuñecar", "Salobreña", "Lanjarón"}));
 		contentPane.add(comboBox, "cell 2 0,growx");
 		
 		JLabel lblSeleccion = new JLabel("Has seleccionado: ");

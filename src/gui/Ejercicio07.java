@@ -69,6 +69,7 @@ public class Ejercicio07 extends JFrame {
 				} else {
 					textField.setBackground(Color.WHITE);
 				}
+				//cambiaColor(Color.BLUE);
 			}
 		});
 		
@@ -118,6 +119,10 @@ public class Ejercicio07 extends JFrame {
 		});
 		buttonGroup.add(rdbtnMagenta);
 		contentPane.add(rdbtnMagenta, "cell 2 5");
+	}
+	//funcion que quita de hacer los if
+	protected void cambiaColor (Color color) {
+		textField.setBackground(color);
 	}
 
 }

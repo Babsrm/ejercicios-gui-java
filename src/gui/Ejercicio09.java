@@ -67,7 +67,7 @@ public class Ejercicio09 extends JFrame {
 		textPelicula.setColumns(10);
 		
 		comboBoxPeliculas = new JComboBox<String>();
-		comboBoxPeliculas.setModel(new DefaultComboBoxModel(new String[] {"Beetlechus", "Orgullo y Prejuicio"}));
+		comboBoxPeliculas.setModel(new DefaultComboBoxModel<String>(new String[] {"Beetlechus", "Orgullo y Prejuicio"}));
 		contentPane.add(comboBoxPeliculas, "cell 1 2,growx");
 		
 		JButton btnAnadir = new JButton("Añadir");
