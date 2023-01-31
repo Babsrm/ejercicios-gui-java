@@ -175,7 +175,7 @@ public class EjercicioListas extends JFrame {
 			//limpio la tabla de datos
 			modelo.setRowCount(0); //la pongo en la fila cero, por lo que se desechan las que hay
 			//recorro la lista y la voy añadiendo como vector en la tabla
-			for (Contacto c : listaContactos) {
+			for (Contacto c : listaContactos) { //de la listaContactos, va iterando objeto a objeto y lo mete en la fila
 				Object fila [] = {
 						c.getNombre(), c.getTelefono()
 				};
